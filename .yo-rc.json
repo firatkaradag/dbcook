@@ -1,0 +1,18 @@
+{
+  "generator-ngx-rocket": {
+    "version": "2.4.0",
+    "props": {
+      "appName": "dbcook",
+      "target": [
+        "web"
+      ],
+      "pwa": true,
+      "ui": "ionic",
+      "auth": true,
+      "projectName": "dbcook",
+      "packageManager": "npm",
+      "mobile": [],
+      "webview": []
+    }
+  }
+}

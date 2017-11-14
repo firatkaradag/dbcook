@@ -6,26 +6,34 @@
   flex-grow: 1;
 }
 
+.app-logo {
+  background: url('/assets/dbcook-logo-white.png') 57% no-repeat;
+  background-size: contain;
+  text-align: center;
+  height: 70px;
+}
+
 .login-app-name {
   font-family: 'Lobster', cursive;
+  margin-top: 0px;
 }
 
 .login-header,
 .login-background {
-  background: color($colors, orange);
+  background: color($colors, primary);
 }
 
 .item-select .label-md,
 .login-header,
 .login-background {
-  color: color-contrast($colors, orange);
+  color: color-contrast($colors, primary);
 }
 
 // Force style down to child components
 // See https://angular.io/guide/component-styles#deep
 // stylelint-disable-next-line selector-max-compound-selectors, selector-pseudo-element-no-unknown
 :host ::ng-deep .select-icon .select-icon-inner {
-  color: color-contrast($colors, orange);
+  color: color-contrast($colors, primary);
 }
 
 .login-background {

@@ -1,0 +1,38 @@
+// Font path is used to include Lobster fonts
+$lobster-font-path: "./theme/fonts";
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster Regular"), local("Lobster-Regular"), url("#($lobster-font-path)/lobster-regular-cyrillic-ext.woff2") format('woff2');
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster Regular"), local("Lobster-Regular"), url("#($lobster-font-path)/lobster-regular-cyrillic.woff2") format('woff2');
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster Regular"), local("Lobster-Regular"), url("#($lobster-font-path)/lobster-regular-vietnamese.woff2") format('woff2');
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster Regular"), local("Lobster-Regular"), url("#($lobster-font-path)/lobster-regular-latin-ext.woff2") format('woff2');
+}
+/* latin */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster Regular"), local("Lobster-Regular"), url("#($lobster-font-path)/lobster-regular-latin.woff2") format('woff2');
+}

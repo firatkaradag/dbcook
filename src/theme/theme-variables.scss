@@ -8,7 +8,6 @@
 $font-path: "~ionic-angular/fonts";
 $ionicons-font-path: "~ionicons/dist/fonts";
 
-
 // The app direction is used to include rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
@@ -77,11 +76,12 @@ $text-input-wp-show-valid-highlight:      false;
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see: http://ionicframework.com/docs/v2/ionicons/
 
-@import "~ionicons/dist/scss/ionicons";
+//@import "~ionicons/dist/scss/ionicons";
 
 
 // Fonts
 // --------------------------------------------------
 
-@import "~ionic-angular/fonts/roboto";
-@import "~ionic-angular/fonts/noto-sans";
+//@import "~ionic-angular/fonts/roboto";
+//@import "~ionic-angular/fonts/noto-sans";
+//@import "lobster";

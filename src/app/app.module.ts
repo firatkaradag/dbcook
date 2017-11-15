@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { BlogModule } from './blog/blog.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
@@ -23,6 +24,7 @@ import { LoginModule } from './login/login.module';
     IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),
     CoreModule,
     SharedModule,
+    BlogModule,
     HomeModule,
     AboutModule,
     LoginModule,

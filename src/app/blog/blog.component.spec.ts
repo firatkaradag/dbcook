@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from 'ionic-angular';
 
+import { CoreModule } from '../core/core.module';
 import { BlogComponent } from './blog.component';
 
 describe('BlogComponent', () => {
@@ -9,10 +13,16 @@ describe('BlogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [IonicModule.forRoot(BlogComponent)],
-        declarations: [BlogComponent]
-      })
-      .compileComponents();
+      imports: [
+        IonicModule.forRoot(BlogComponent),
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+        ReactiveFormsModule,
+        CoreModule
+      ],
+      declarations: [BlogComponent]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {

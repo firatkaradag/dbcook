@@ -1,16 +1,72 @@
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title><span class="app-name" translate>APP_NAME</span></ion-title>
-    <a item-end><ion-icon ios="ios-brush" md="md-brush"></ion-icon>I am a writer</a>
-  </ion-navbar>
+<ion-header class="blog-header">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <div class="blog-app-logo-container">
+          <div class="blog-app-logo"></div>
+          <h1 class="blog-app-name" translate>APP_NAME</h1>
+        </div>
+      </ion-col>
+      <ion-col class="blog-tag-line" col-6>
+        <p>Sugar Free - Glutten Free - Best Recipes Ever!</p>
+      </ion-col>
+      <ion-col col-2 class="header-menu">
+        <a class="writer-button" routerLink="/login" routerLinkActive="active">I am a writer</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
-<ion-content>
-  <ion-card text-center>
-    <ion-card-content>
-      <ion-card-title translate>APP_NAME</ion-card-title>
-      <p>
-        <ion-icon name="code"></ion-icon> <span translate>Version</span> {{version}}
-      </p>
-    </ion-card-content>
+<ion-content no-bounce>
+  <ion-card class="banner-container container">
+    <ion-slides class="banners" pager>
+      <ion-slide class="banner" style="background: url('https://s3-eu-west-1.amazonaws.com/mae-deli/wp-content/uploads/2017/11/10144354/a3-e1510384519530.jpg') 50% no-repeat;">
+      </ion-slide>
+      <ion-slide class="banner" style="background: url('https://s3-eu-west-1.amazonaws.com/mae-deli/wp-content/uploads/2017/11/13142542/b3.jpg') 100% no-repeat;">
+      </ion-slide>
+      <ion-slide class="banner" style="background: url('https://s3-eu-west-1.amazonaws.com/mae-deli/wp-content/uploads/2017/11/06190515/e-e1510136800971.jpg') 100% no-repeat;">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <ion-grid>
+    <ion-row class="recipe-cards">
+      <ion-col col-lg-3 col-sm-6 col-xs-12>
+        <ion-card class="recipe-card">
+          <img src="https://32lxcujgg9-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/jerk-roasted-squash-3.jpg"/>
+          <div class="card-title">Jerk Roasted Kuri Squash with Bulgur Salad</div>
+          <div class="card-link"><a href="https://naturallyella.com/jerk-roasted-kuri-squash/">naturallyella.com</a></div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-lg-3 col-sm-6 col-xs-12>
+        <ion-card class="recipe-card">
+          <img src="https://32lxcujgg9-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/bulgur-lentil-ragu-2.jpg"/>
+          <div class="card-title">Bulgur Lentil Ragu with Parsnip-Rutabaga Mash</div>
+          <div class="card-link"><a href="https://naturallyella.com/bulgur-lentil-ragu/">naturallyella.com</a></div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-lg-3 col-sm-6 col-xs-12>
+        <ion-card class="recipe-card">
+          <img src="https://32lxcujgg9-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/butternut-squash-crepes-4.jpg"/>
+          <div class="card-title">Chipotle Butternut Squash Crepes with Cilantro Crema</div>
+          <div class="card-link"><a href="https://naturallyella.com/chipotle-butternut-squash-crepes/">naturallyella.com</a></div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-lg-3 col-sm-6 col-xs-12>
+        <ion-card class="recipe-card">
+          <img src="https://32lxcujgg9-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/pasta.jpg"/>
+          <div class="card-title">13 Vegetarian Pasta Recipes for Fall</div>
+          <div class="card-link"><a href="https://naturallyella.com/vegetarian-pasta-recipes/">naturallyella.com</a></div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card>
+    <ion-slides class="advs" autoplay="6000" loop="true">
+      <ion-slide class="adv" style="background: url('https://s3-eu-west-1.amazonaws.com/mae-deli/wp-content/uploads/2015/03/02135715/j.jpg') 100% no-repeat;">
+      </ion-slide>
+      <ion-slide class="adv" style="background: url('http://www.foodheavenmadeeasy.com/wp-content/uploads/2015/10/FHME_podcastnew.jpg') 100% no-repeat;">
+      </ion-slide>
+      <ion-slide class="adv" style="background: url('http://golubkakitchen.com/wp-content/uploads/2017/02/IMG_7647.jpg') 50% no-repeat;">
+      </ion-slide>
+    </ion-slides>
   </ion-card>
 </ion-content>

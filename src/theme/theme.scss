@@ -2,3 +2,58 @@
  * Global application theme.
  * Framework overrides and customization goes here.
  */
+ // Font path is used to include Lobster fonts
+ $lobster-font-path: "theme/fonts/";
+ /* cyrillic-ext */
+ @font-face {
+   font-family: 'Lobster';
+   font-style: normal;
+   font-weight: 400;
+   src: local("Lobster Regular"), local("Lobster-Regular"), url("theme/fonts/lobster-regular-cyrillic-ext.woff2") format('woff2');
+ }
+
+ /* cyrillic */
+ @font-face {
+   font-family: 'Lobster';
+   font-style: normal;
+   font-weight: 400;
+   src: local("Lobster Regular"), local("Lobster-Regular"), url("theme/fonts/lobster-regular-cyrillic.woff2") format('woff2');
+ }
+ /* vietnamese */
+ @font-face {
+   font-family: 'Lobster';
+   font-style: normal;
+   font-weight: 400;
+   src: local("Lobster Regular"), local("Lobster-Regular"), url("theme/fonts/lobster-regular-vietnamese.woff2") format('woff2');
+ }
+ /* latin-ext */
+ @font-face {
+   font-family: 'Lobster';
+   font-style: normal;
+   font-weight: 400;
+   src: local("Lobster Regular"), local("Lobster-Regular"), url("theme/fonts/lobster-regular-latin-ext.woff2") format('woff2');
+ }
+ /* latin */
+ @font-face {
+   font-family: 'Lobster';
+   font-style: normal;
+   font-weight: 400;
+   src: local("Lobster Regular"), local("Lobster-Regular"), url("theme/fonts/lobster-regular-latin.woff2") format('woff2');
+ }
+
+ html {
+   background-color: #ff8c00;
+ }
+ .app-loader {
+
+   .app-logo {
+     background: url('assets/dbcook-logo-white.png') 57% no-repeat;
+     background-size: contain;
+     text-align: center;
+     height: 70px;
+   }
+   .app-name {
+     font-family: 'Lobster', cursive;
+     margin-top: 0px;
+   }
+ }

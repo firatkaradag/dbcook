@@ -1,3 +1,114 @@
-.app-name {
+@import "../../theme/theme-variables";
+
+.grid,
+.row {
+  min-height: 100%;
+  flex-grow: 1;
+}
+
+.blog-app-logo-container {
   font-family: 'Lobster', cursive;
+  width: 150px;
+  height: 90px;
+  margin-left: 60px;
+  padding: 20px;
+  color: white;
+}
+
+.blog-app-logo {
+  background: url('/assets/dbcook-logo-white.png') 57% no-repeat;
+  background-size: contain;
+  text-align: center;
+  height: 36px;
+}
+
+.blog-app-name {
+  margin-top: 0px;
+  font-size: 18px;
+}
+
+.blog-tag-line {
+  font-family: 'Lobster', cursive;
+  font-size: 24px;
+  color: white;
+}
+
+.advs {
+  padding: 10px;
+  height: 680px;
+}
+
+.recipe-cards { padding: 50px; }
+.recipe-card {
+  max-width: 350px;
+  height: 100%;
+}
+
+.card-title {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+  padding: 10px;
+  padding-bottom: 60px;
+}
+
+.card-link {
+  position: absolute;
+  font-size: 12px;
+  padding: 10px;
+  bottom: 10px;
+  right: 30px;
+}
+
+.header-menu { margin-top: 55px; }
+.writer-button {
+  font-family: 'Lobster', cursive;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  bottom: 0px;
+}
+
+.banner-container { height: 90%; }
+.banners { padding: 15px; }
+.banner {
+  background-size: contain;
+}
+
+.blog-header,
+.blog-background {
+  background: color($colors, primary);
+}
+
+.item-select .label-md,
+.blog-header,
+.blog-background {
+  color: color-contrast($colors, primary);
+}
+
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
+// stylelint-disable-next-line selector-max-compound-selectors, selector-pseudo-element-no-unknown
+:host ::ng-deep .select-icon .select-icon-inner {
+  color: color-contrast($colors, primary);
+}
+
+.blog-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 70%;
+}
+
+.blog-container {
+  background: $background-color;
+
+  .item {
+    @include padding-horizontal($content-margin, $content-margin);
+  }
+}
+
+.list > .item-block:first-child {
+  border-top: none;
 }

@@ -5,7 +5,7 @@ import { extract } from '../core/i18n.service';
 import { BlogComponent } from './blog.component';
 
 const routes: Routes = [
-  { path: 'blog', component: BlogComponent, data: { title: extract('DBCook Blog') } }
+  { path: 'blog', component: BlogComponent, data: { title: extract('DBCook') } }
 ];
 
 @NgModule({

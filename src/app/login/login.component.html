@@ -5,7 +5,8 @@
       <ion-col col-sm-8 col-lg-6 col-xl-4 align-self-center no-padding>
         <div class="login-header" text-center>
           <div class="app-logo"></div>
-          <h1 class="login-app-name" translate>APP_NAME</h1>
+          <h1 class="login-app-name" routerLink="/blog" routerLinkActive="active" translate>APP_NAME</h1>
+          <ion-icon ios="ios-brush" md="md-brush"></ion-icon>
           <h6>v{{version}}</h6>
           <ion-list *ngIf="isWeb" color="primary" no-lines no-margin>
             <ion-item color="primary">

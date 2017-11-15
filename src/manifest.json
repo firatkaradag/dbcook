@@ -4,10 +4,10 @@
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/ngx-rocket-logo.png",
-    "sizes": "512x512",
+    "src": "assets/dbcook-logo-white.png",
+    "sizes": "200x153",
     "type": "image/png"
   }],
-  "background_color": "#488aff",
-  "theme_color": "#488aff"
+  "background_color": "#ff8c00",
+  "theme_color": "#ff8c00"
 }

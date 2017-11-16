@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, Platform } from 'ionic-angular';
+import { LoadingController, Platform, Content } from 'ionic-angular';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
@@ -16,16 +16,29 @@ const log = new Logger('Blog');
 })
 export class BlogComponent implements OnInit {
 
-  version: string = environment.version;
-  error: string = null;
+  @ViewChild(Content) content:Content;
+  private version: string = environment.version;
+  private error: string = null;
+  private navIsFixed: boolean = false;
 
   constructor(private router: Router,
               private platform: Platform,
               private loadingController: LoadingController,
-              private i18nService: I18nService) {
-  }
+              private i18nService: I18nService,
+  ) {}
 
   ngOnInit() {}
+  ngAfterViewInit() {
+    this.content.ionScroll
+    .subscribe((data:any) => {
+      let scrollTop:number = data['scrollTop'];
+      if (scrollTop > 100) {
+        this.navIsFixed = true;
+      } else if (this.navIsFixed && scrollTop < 10) {
+        this.navIsFixed = false;
+      }
+    });
+  }
 
   setLanguage(language: string) {
     this.i18nService.language = language;

@@ -1,13 +1,12 @@
-<ion-header class="blog-header">
-  <ion-grid>
+<ion-header [class.fixed]="navIsFixed">
+  <ion-grid class="header-small">
     <ion-row>
       <ion-col col-4>
-        <div class="blog-app-logo-container">
-          <div class="blog-app-logo"></div>
-          <h1 class="blog-app-name" translate>APP_NAME</h1>
+        <div class="header-app-logo-container">
+          <h1 class="header-app-name" translate>APP_NAME</h1>
         </div>
       </ion-col>
-      <ion-col class="blog-tag-line" col-6>
+      <ion-col class="header-tag-line" col-6>
         <p>Sugar Free - Glutten Free - Best Recipes Ever!</p>
       </ion-col>
       <ion-col col-2 class="header-menu">
@@ -16,7 +15,25 @@
     </ion-row>
   </ion-grid>
 </ion-header>
-<ion-content no-bounce>
+<ion-content [class.fixed]="!navIsFixed">
+  <div class="blog-header">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div class="blog-app-logo-container">
+            <div class="blog-app-logo"></div>
+            <h1 class="blog-app-name" translate>APP_NAME</h1>
+          </div>
+        </ion-col>
+        <ion-col class="blog-tag-line" col-6>
+          <p>Sugar Free - Glutten Free - Best Recipes Ever!</p>
+        </ion-col>
+        <ion-col col-2 class="blog-menu">
+          <a class="writer-button" routerLink="/login" routerLinkActive="active">I am a writer</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
   <ion-card class="banner-container container">
     <ion-slides class="banners" pager>
       <ion-slide class="banner" style="background: url('https://s3-eu-west-1.amazonaws.com/mae-deli/wp-content/uploads/2017/11/10144354/a3-e1510384519530.jpg') 50% no-repeat;">

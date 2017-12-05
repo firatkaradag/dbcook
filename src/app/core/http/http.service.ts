@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
-  Http, ConnectionBackend, RequestOptions, Request, Response, RequestOptionsArgs, RequestMethod, ResponseOptions
+  Http, ConnectionBackend, RequestOptions, Request, Response, Headers, RequestOptionsArgs, RequestMethod, ResponseOptions
 } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
@@ -8,6 +8,7 @@ import { _throw } from 'rxjs/observable/throw';
 import { catchError } from 'rxjs/operators';
 import { extend } from 'lodash';
 
+import { AuthenticationService } from '../authentication/authentication.service';
 import { environment } from '../../../environments/environment';
 import { Logger } from '../logger.service';
 import { HttpCacheService } from './http-cache.service';
@@ -77,18 +78,55 @@ export class HttpService extends Http {
     }
   }
 
+  queryUrl (type:string, url:string):string {
+
+    if (type === "auth") {
+      let token = "access_token=" + environment.serverKey;
+      url = url.indexOf("?") !== -1 ? url + token : url + "?" + token;
+    }
+
+    return url;
+  }
+
+  authHeader (type:string, token:string):Headers {
+
+    let headers = new Headers({
+      'Content-Type': 'application/json; charset=utf-8',
+      'accept': 'application/json; charset=utf-8'
+    });
+
+    if (type === "jwt") headers.append('authorization', 'Bearer ' + token);
+    if (type === "master") headers.append('authorization', "Bearer " + token);
+    if (type === "auth") headers.append('authorization', "Basic " + token);
+
+    return headers;
+  }
+
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
+
+    options = this.jwtOption(options);
     return this.request(url, extend({}, options, { method: RequestMethod.Get }));
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
+
+    let isAuth = "/auth" === url;
+    let headers:Headers = isAuth ? this.authHeader("auth", body.access_token) : this.authHeader("master", environment.serverKey);
+    if (isAuth) {
+      url = this.queryUrl('auth', url);
+      body = {};
+    }
+
     return this.request(url, extend({}, options, {
       body: body,
-      method: RequestMethod.Post
+      method: RequestMethod.Post,
+      headers: headers
     }));
   }
 
   put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
+
+    options = this.jwtOption(options);
     return this.request(url, extend({}, options, {
       body: body,
       method: RequestMethod.Put
@@ -131,6 +169,15 @@ export class HttpService extends Http {
       return _throw(response);
     }
     throw response;
+  }
+
+  private jwtOption(options?:RequestOptionsArgs):RequestOptionsArgs {
+
+    const auth = new AuthenticationService();
+    let token = (auth && auth.credentials) ? auth.credentials.token : null;
+    let headers:Headers = this.authHeader("jwt", token);
+
+    return extend(options, { headers: headers });
   }
 
 }

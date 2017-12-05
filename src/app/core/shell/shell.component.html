@@ -3,20 +3,30 @@
     <ion-content>
       <div ion-fixed>
         <div class="profile" text-center padding>
-          <ion-icon class="profile-icon" name="contact"></ion-icon>
+          <div class="profile-icon">
+            <ion-thumbnail>
+              <img src="{{user.picture}}">
+            </ion-thumbnail>
+          </div>
           <div>
             <button class="profile-button" ion-button color="light" (click)="showProfileActions()"
                     round outline small icon-start>
-              <ion-icon name="person"></ion-icon> {{username}}
+              <ion-icon name="person"></ion-icon> {{user.email}}
             </button>
           </div>
         </div>
         <ion-list>
           <button menuClose ion-item routerLink="/home" routerLinkActive="active">
-            <span translate>Home</span>
+            <span translate>Dashboard</span>
           </button>
           <button menuClose ion-item routerLink="/about" routerLinkActive="active">
-            <span translate>About</span>
+            <span translate>Profile</span>
+          </button>
+          <button menuClose ion-item routerLink="/recipes" routerLinkActive="active">
+            <span translate>Recipes</span>
+          </button>
+          <button *ngIf="user.role === 'admin'" menuClose ion-item routerLink="/authors" routerLinkActive="active">
+            <span translate>Authors</span>
           </button>
         </ion-list>
       </div>

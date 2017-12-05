@@ -8,6 +8,9 @@
 $font-path: "~ionic-angular/fonts";
 $ionicons-font-path: "~ionicons/dist/fonts";
 
+//
+$dbc-images-path: "/assets/images";
+
 // The app direction is used to include rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
@@ -63,6 +66,9 @@ $text-input-md-show-valid-highlight:      false;
 
 $text-input-wp-show-valid-highlight:      false;
 
+// device size
+$lg-width: 768px;
+$md-width: 375px;
 
 // App Theme
 // --------------------------------------------------
@@ -77,7 +83,6 @@ $text-input-wp-show-valid-highlight:      false;
 // The premium icon font for Ionic. For more info, please see: http://ionicframework.com/docs/v2/ionicons/
 
 @import "~ionicons/dist/scss/ionicons";
-
 
 // Fonts
 // --------------------------------------------------

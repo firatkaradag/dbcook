@@ -36,7 +36,7 @@ export class ShellComponent implements OnInit {
   }
 
   showProfileActions() {
-    const actionSheet = this.actionSheetController.create({ title: this.username });
+    const actionSheet = this.actionSheetController.create({ title: this.user.email });
     const buttons = [
       {
         text: this.translateService.instant('Logout'),
@@ -70,9 +70,12 @@ export class ShellComponent implements OnInit {
     actionSheet.present();
   }
 
-  get username(): string {
-    const credentials = this.authenticationService.credentials;
-    return credentials ? credentials.username : null;
+  get user(): any {
+    let _user:any = {picture: "", email: ""};
+    if (!this.authenticationService) return _user;
+
+    _user = this.authenticationService.user ? this.authenticationService.user : _user;
+    return _user;
   }
 
   private logout() {

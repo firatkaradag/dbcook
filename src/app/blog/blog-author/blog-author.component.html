@@ -1,0 +1,36 @@
+<blog-header></blog-header>
+<ion-content>
+  <ion-card class="author">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="images/{{author.image}}">
+      </ion-thumbnail>
+      <h2>{{author.name}}</h2>
+      <p>{{author.surname}}</p>
+    </ion-item>
+  </ion-card>
+  <ion-grid>
+    <div class="tag" *ngFor="let tag of tags">
+      <h2 class="hash-tag" routerLink="/blog/tags/{{tag.hashtag}}" routerLinkActive="active">#{{tag.hashtag}}</h2>
+      <ion-row class="recipe-cards">
+        <ion-col col-12 col-md-6 col-lg-3 *ngFor="let recipe of tag.recipes">
+          <ion-card class="recipe-card" routerLink="/blog/recipes/{{recipe.id}}" routerLinkActive="active">
+            <img src="{{recipe.img}}"/>
+            <div class="card-title">{{recipe.title}}</div>
+            <div class="card-link"><a href="{{recipe.site.link}}">{{recipe.site.name}}</a></div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+  <ion-card class="footer-card">
+    <ion-slides class="advs" autoplay="6000" loop="true">
+      <ion-slide class="adv" style="background: url('https://s3-eu-west-1.amazonaws.com/mae-deli/wp-content/uploads/2015/03/02135715/j.jpg') 100% no-repeat;">
+      </ion-slide>
+      <ion-slide class="adv" style="background: url('http://www.foodheavenmadeeasy.com/wp-content/uploads/2015/10/FHME_podcastnew.jpg') 100% no-repeat;">
+      </ion-slide>
+      <ion-slide class="adv" style="background: url('http://golubkakitchen.com/wp-content/uploads/2017/02/IMG_7647.jpg') 50% no-repeat;">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+</ion-content>

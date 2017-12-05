@@ -257,5 +257,11 @@
 "~ionic-angular/fonts/roboto";
 /* stylelint-enable */
 
+// Froala
+@import
+"theme/froala_editor/froala_editor.pkgd.min",
+"theme/froala_editor/froala_style.min",
+"theme/font-awesome/font-awesome";
+
 // Theme customization
 @import "theme/theme";

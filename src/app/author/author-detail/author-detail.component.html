@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span translate>Recipe Details</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form  id="authorForm" (ngSubmit)="save()" [formGroup]="authorForm" novalidate>
+    <!-- <div padding ion-text color="danger" [hidden]="!error || authorForm.dirty" translate>
+      Control all the information and formats.
+    </div> -->
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" floating>Author Name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <div padding [hidden]="authorForm.controls.name.valid || authorForm.controls.name.untouched"
+             ion-text color="danger" translate>
+        Name is required
+      </div>
+      <ion-item>
+        <ion-label color="primary" floating>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <div padding [hidden]="authorForm.controls.email.valid || authorForm.controls.email.untouched"
+             ion-text color="danger" translate>
+        Email is required
+      </div>
+      <ion-item>
+        <ion-label color="primary" floating>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div padding [hidden]="authorForm.controls.password.valid || authorForm.controls.password.untouched"
+             ion-text color="danger" translate>
+        Password is required
+      </div>
+      <ion-item>
+        <ion-label color="primary" floating>Picture</ion-label>
+        <ion-input formControlName="picture"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Role</ion-label>
+        <ion-input formControlName="role"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" color="secondary" form="authorForm" [disabled]="authorForm.invalid">Save</button>
+      <button ion-button color="danger" routerLink="/authors" routerLinkActive="active">Cancel</button>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span translate>Author List</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card text-center>
+    <ion-card-content>
+      <p>
+        <app-loader [isLoading]="isLoading"></app-loader>
+        <ion-list [hidden]="isLoading || count == 0">
+          <ion-item *ngFor="let author of authors">
+            <ion-thumbnail item-start>
+              <img src="{{author.picture}}">
+            </ion-thumbnail>
+            <h2>{{author.name}}</h2>
+            <p>{{author.email}}</p>
+            <button ion-button clear item-end routerLink="/authors/{{author.id}}" routerLinkActive="active">Edit</button>
+          </ion-item>
+        </ion-list>
+        <button ion-button full routerLink="/authors/new" routerLinkActive="active">New Author</button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

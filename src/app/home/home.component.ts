@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
-import { QuoteService } from './quote.service';
+import { InfoService } from './info.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +10,16 @@ import { QuoteService } from './quote.service';
 })
 export class HomeComponent implements OnInit {
 
-  quote: string;
+  info: string;
   isLoading: boolean;
 
-  constructor(private quoteService: QuoteService) {}
+  constructor(private infoService: InfoService) {}
 
   ngOnInit() {
-    this.isLoading = true;
-    this.quoteService.getRandomQuote({ category: 'dev' })
-      .pipe(finalize(() => { this.isLoading = false; }))
-      .subscribe((quote: string) => { this.quote = quote; });
+    // this.isLoading = true;
+    // this.infoService.getInfo()
+    //   .pipe(finalize(() => { this.isLoading = false; }))
+    //   .subscribe((info: string) => { this.info = info; });
   }
 
 }

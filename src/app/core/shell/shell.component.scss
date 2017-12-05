@@ -12,11 +12,22 @@
 .profile-icon {
   font-size: 6rem;
   color: color-contrast($colors, primary);
+  border-radius: 50px;
+  width: 80px;
+  height: 80px;
+  border: 2px white solid;
+
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 10px;
 
   // Use parent class from outside component context
   // See https://angular.io/guide/component-styles#host-context
-  :host-context(.platform-ios) & {
-    padding-top: $cordova-ios-statusbar-padding;
+  // :host-context(.platform-ios) & {
+  //   padding-top: $cordova-ios-statusbar-padding;
+  // }
+  img {
+    border-radius: 50%;
   }
 }
 

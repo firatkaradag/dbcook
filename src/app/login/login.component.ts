@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Http, Response } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoadingController, Platform } from 'ionic-angular';
 import { finalize } from 'rxjs/operators';
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private router: Router,
+              private http: Http,
               private formBuilder: FormBuilder,
               private platform: Platform,
               private loadingController: LoadingController,
@@ -35,19 +37,36 @@ export class LoginComponent implements OnInit {
 
   login() {
     const loading = this.loadingController.create();
-    loading.present();
-    this.authenticationService.login(this.loginForm.value)
+    let credentials = this.loginForm.value;
+
+    loading.present().then(() => {
+      this.http.post("/auth", {access_token: btoa(credentials.username + ":" + credentials.password)})
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
         loading.dismiss();
       }))
-      .subscribe(credentials => {
-        log.debug(`${credentials.username} successfully logged in`);
-        this.router.navigate(['/'], { replaceUrl: true });
+      .subscribe((res:Response) => {
+        let body:any = JSON.parse(res.text());
+        credentials.token = body.token;
+        credentials.user = body.user;
+        this.authenticationService.login(credentials)
+          .pipe(finalize(() => {
+            this.loginForm.markAsPristine();
+            loading.dismiss();
+          }))
+          .subscribe((credentials) => {
+            log.debug(`${credentials.user.email} successfully logged in`);
+
+            this.router.navigate(['/home'], { replaceUrl: true });
+          }, error => {
+            log.debug(`Login error: ${error}`);
+            this.error = error;
+          });
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;
       });
+    })
   }
 
   setLanguage(language: string) {
@@ -68,8 +87,8 @@ export class LoginComponent implements OnInit {
 
   private createForm() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['firat@dbcook.com', Validators.required],
+      password: ['frtkrdg', Validators.required],
       remember: true
     });
   }

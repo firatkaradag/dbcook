@@ -1,18 +1,26 @@
 import { Observable } from 'rxjs/Observable';
 
-import { Credentials, LoginContext } from './authentication.service';
+import { User, Credentials, LoginContext } from './authentication.service';
 
 export class MockAuthenticationService {
 
+  user: User = {
+    id: "0",
+    email: "firat@dbcook.com",
+    name: "firat",
+    picture: "assets/images/author.png",
+    createdAt: ""
+  }
+
   credentials: Credentials = {
-    username: 'test',
-    token: '123'
+    token: 'firat@dbcook.com:123456',
+    user: this.user
   };
 
   login(context: LoginContext): Observable<Credentials> {
     return Observable.of({
-      username: context.username,
-      token: '123456'
+      token: context.token,
+      user: context.user
     });
   }
 

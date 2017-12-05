@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span translate>Recipe List</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card text-center>
+    <ion-card-content>
+      <p>
+        <app-loader [isLoading]="isLoading"></app-loader>
+        <ion-list [hidden]="isLoading || count == 0">
+          <ion-item *ngFor="let recipe of recipes">
+            <ion-thumbnail item-start>
+              <img src="{{recipe.thumbnail}}">
+            </ion-thumbnail>
+            <h2>{{recipe.title}}</h2>
+            <p>{{recipe.abstract}}</p>
+            <ion-badge item-end color="light" class="badge" *ngFor="let label of recipe.labels">{{label}}</ion-badge>
+            <button [disabled]="!recipe.show" ion-button clear item-end routerLink="/recipes/{{recipe.id}}" routerLinkActive="active">Edit</button>
+            <button ion-button clear item-end routerLink="/recipe-view/{{recipe.id}}" routerLinkActive="active">View</button>
+          </ion-item>
+        </ion-list>
+        <button ion-button full routerLink="/recipes/new" routerLinkActive="active">New Recipe</button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

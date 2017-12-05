@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  picture: string;
+  createdAt: string;
+  role: string;
+}
+
 export interface Credentials {
   // Customize received credentials here
-  username: string;
+  user: User;
   token: string;
 }
 
 export interface LoginContext {
-  username: string;
-  password: string;
+  token: string;
+  user: User;
   remember?: boolean;
 }
 
@@ -23,6 +32,7 @@ const credentialsKey = 'credentials';
 export class AuthenticationService {
 
   private _credentials: Credentials;
+  private _user: User;
 
   constructor() {
     this._credentials = JSON.parse(sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey));
@@ -35,10 +45,11 @@ export class AuthenticationService {
    */
   login(context: LoginContext): Observable<Credentials> {
     // Replace by proper authentication call
-    const data = {
-      username: context.username,
-      token: '123456'
+    const data:Credentials = {
+      user: context.user,
+      token: context.token
     };
+
     this.setCredentials(data, context.remember);
     return Observable.of(data);
   }
@@ -67,6 +78,14 @@ export class AuthenticationService {
    */
   get credentials(): Credentials {
     return this._credentials;
+  }
+
+  /**
+   * Gets the user credentials.
+   * @return {User} The user info or null if the user is not authenticated.
+   */
+  get user(): User {
+    return this._credentials.user;
   }
 
   /**

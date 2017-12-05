@@ -14,6 +14,8 @@ import { BlogModule } from './blog/blog.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
+import { RecipeModule } from './recipe/recipe.module';
+import { AuthorModule } from './author/author.module';
 
 @NgModule({
   imports: [
@@ -28,11 +30,12 @@ import { LoginModule } from './login/login.module';
     HomeModule,
     AboutModule,
     LoginModule,
-    AppRoutingModule
+    RecipeModule,
+    AuthorModule,
+    AppRoutingModule,
   ],
   declarations: [AppComponent],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [IonicApp]
 })
 export class AppModule { }

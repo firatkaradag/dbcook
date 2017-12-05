@@ -1,11 +1,12 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 
-import { AuthenticationService } from './authentication.service';
+import { AuthenticationService, User } from './authentication.service';
 
 const credentialsKey = 'credentials';
 
 describe('AuthenticationService', () => {
   let authenticationService: AuthenticationService;
+  let user: User;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -17,6 +18,14 @@ describe('AuthenticationService', () => {
     AuthenticationService
   ], (_authenticationService: AuthenticationService) => {
     authenticationService = _authenticationService;
+    user = {
+      id: "0",
+      email: "firat@dbcook.com",
+      name: "firat",
+      picture: "assets/images/author.png",
+      createdAt: "",
+      role: "user"
+    }
   }));
 
   afterEach(() => {
@@ -29,8 +38,8 @@ describe('AuthenticationService', () => {
     it('should return credentials', fakeAsync(() => {
       // Act
       const request = authenticationService.login({
-        username: 'toto',
-        password: '123'
+        token: 'firat@dbcook.com:123456',
+        user: user
       });
       tick();
 
@@ -46,8 +55,8 @@ describe('AuthenticationService', () => {
 
       // Act
       const request = authenticationService.login({
-        username: 'toto',
-        password: '123'
+        token: 'firat@dbcook.com:123456',
+        user: user
       });
       tick();
 
@@ -64,8 +73,8 @@ describe('AuthenticationService', () => {
     it('should persist credentials for the session', fakeAsync(() => {
       // Act
       const request = authenticationService.login({
-        username: 'toto',
-        password: '123'
+        token: 'firat@dbcook.com:123456',
+        user: user
       });
       tick();
 
@@ -78,8 +87,8 @@ describe('AuthenticationService', () => {
     it('should persist credentials across sessions', fakeAsync(() => {
       // Act
       const request = authenticationService.login({
-        username: 'toto',
-        password: '123',
+        token: 'firat@dbcook.com:123456',
+        user: user,
         remember: true
       });
       tick();
@@ -95,8 +104,8 @@ describe('AuthenticationService', () => {
     it('should clear user authentication', fakeAsync(() => {
       // Arrange
       const loginRequest = authenticationService.login({
-        username: 'toto',
-        password: '123'
+        token: 'firat@dbcook.com:123456',
+        user: user
       });
       tick();
 
@@ -119,8 +128,8 @@ describe('AuthenticationService', () => {
     it('should clear persisted user authentication', fakeAsync(() => {
       // Arrange
       const loginRequest = authenticationService.login({
-        username: 'toto',
-        password: '123',
+        token: 'firat@dbcook.com:123456',
+        user: user,
         remember: true
       });
       tick();

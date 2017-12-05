@@ -1,0 +1,32 @@
+<ion-content>
+  <form  id="recipeForm" (ngSubmit)="save()" [formGroup]="recipeForm" novalidate>
+    <!-- <div padding ion-text color="danger" [hidden]="!error || recipeForm.dirty" translate>
+      Control all the information and formats.
+    </div> -->
+    <ion-list>
+      <ion-textarea [(froalaModel)]="editor" [froalaEditor]="options"></ion-textarea>
+      <ion-item>
+        <ion-label color="primary" floating>Title</ion-label>
+        <ion-input formControlName="title"></ion-input>
+        </ion-item>
+        <div padding [hidden]="recipeForm.controls.title.valid || recipeForm.controls.title.untouched"
+               ion-text color="danger" translate>
+          Title is required
+        </div>
+      <ion-item>
+        <ion-label color="primary" floating>Abstract</ion-label>
+        <ion-input formControlName="abstract"></ion-input>
+      </ion-item>
+      <div padding [hidden]="recipeForm.controls.abstract.valid || recipeForm.controls.abstract.untouched"
+             ion-text color="danger" translate>
+        Abstract is required
+      </div>
+      <ion-item>
+        <ion-label color="primary" floating>Keywords</ion-label>
+        <ion-input formControlName="badges"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" color="secondary" form="recipeForm" [disabled]="recipeForm.invalid">Save</button>
+      <button ion-button type="cancel" color="light" form="recipeForm" routerLink="/recipes" routerLinkActive="active">Cancel</button>
+    </ion-list>
+  </form>
+</ion-content>

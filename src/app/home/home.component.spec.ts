@@ -5,7 +5,7 @@ import { IonicModule } from 'ionic-angular';
 
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
+import { InfoService } from './info.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -19,7 +19,7 @@ describe('HomeComponent', () => {
         ],
         declarations: [HomeComponent],
         providers: [
-          QuoteService,
+          InfoService,
           MockBackend,
           BaseRequestOptions,
           {

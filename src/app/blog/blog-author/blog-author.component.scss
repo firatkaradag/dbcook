@@ -1,0 +1,63 @@
+@import "../../../theme/theme-variables";
+
+ion-content {
+  margin-top: 100px;
+}
+ion-card {
+  margin-bottom: 400px;
+}
+ion-col {
+  max-height: 520px;
+}
+
+.author {
+  margin-bottom: 0px;
+  margin-top: 30px;
+  margin-left: 70px;
+  width: calc(100% - 140px);
+  @media screen and (max-width: $lg-width) {
+    margin-left: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+.recipe-cards {
+  padding: 50px;
+  padding-top: 0px;
+  @media screen and (max-width: $lg-width) {
+    padding: 0px;
+  }
+}
+.recipe-card {
+  max-width: 350px;
+  height: 98%;
+}
+
+.card-title {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+  padding: 10px;
+  padding-bottom: 60px;
+}
+
+.card-link {
+  position: absolute;
+  font-size: 12px;
+  padding: 10px;
+  bottom: 10px;
+  right: 30px;
+  @media screen and (max-width: $lg-width) {
+    right: 20px;
+  }
+
+}
+
+.hash-tag {
+  margin-left: 70px;
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+  @media screen and (max-width: $lg-width) {
+    margin-left: 20px;
+  }
+}
